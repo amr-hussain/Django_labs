@@ -1,24 +1,52 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from .models import trainee
+# import json
 
-# Create your views here.
 
-def trainee_list(request):
-    trainees = trainee.objects.all()
-    return render(request, 'trainee/list.html', {'trainees': trainees})
+# json_data = "trainees.json"
+#
+# def load_data():
+#     try:
+#         with open(json_data, "r") as json_file:
+#             return json.load(json_file)
+#     except :
+#         raise ValueError
+#
+# def save_data(data):
+#     with open(json_data, "w") as json_file:
+#         # indent 4 for readability only
+#         json.dump(data, json_file, indent=4)
+#
 
-def add_trainee(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        trainee.objects.create(name=name, email=email)
-    return render(request, 'trainee/add.html')
+trainee_date = {
 
-def update_trainee(request, id):
-    t = trainee.objects.get(id=id)
-    if request.method == 'POST':
-        t.name = request.POST['name']
-        t.email = request.POST['email']
-        t.save()
-    return render(request, 'trainee/edit.html', {'trainee': trainee})
+    "trainee1": {
+        "id": 123,
+        "name": "ali",
+        "email": "ali@gmail.com",
+    },
+    "trainee2": {
+        "id": 456,
+        "name": "amr",
+        "email": "amr@gmail.com",
+    }
+}
+def login(request):
+    return HttpResponse("<h1>Hello, world. You're at the login page.</h1>")
+
+def delete_trainee(request):
+    return HttpResponse("<h1>Hello, world.</h1>")
+#
+def list_trainees(request):
+    output = "<h1>List of Trainees</h1>"
+    output += "<ul>"
+    for t in trainee_date.values():
+        output += (f"<li>ID = {t['id']}</li> \n\
+        <li style='list-style: none; padding-left: 30px;'> \
+        trainee name: {t['name']}, Email: {t['email']} \
+        </li>")
+    output += "</ul>"
+
+    return HttpResponse(output)
+
 

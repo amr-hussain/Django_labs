@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# from day1_lab.ITIan.trainee.views import update_trainee
+from trainee.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', login, name="login"),
+    path('delete/', delete_trainee, name="delete"),
+    path('trainees/', list_trainees, name="delete"),
+
 ]
