@@ -1,8 +1,12 @@
 {% extends "parent_course.html" %}
 {% load static %}
 
-{% block heading %}
+{% block styling %}
     <h1> this is a heading from the child show_courses.html</h1>
+{% endblock %}
+
+{% block heading %}
+    <link rel="stylesheet" href="{% static 'css/show_courses.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -28,7 +32,10 @@
                 {% endfor %}
             </tbody>
         </table>
-            <div>
-                <a href='{% url "add" %}'>add a new course</a>
+            <div id="add_course">
+
+                <div>
+                    <a href='{% url "add" %}'>add a new course</a>
+                </div>
             </div>
         {% endblock %}
