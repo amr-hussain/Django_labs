@@ -1,0 +1,17 @@
+pip install django
+#linux--->ativate venv
+source .venv/bin/activate
+#windows--->activate ven
+.venv/Scripts/activate.bat
+#check django version
+django-admin --version
+or pip freeze
+#create project
+django-admin startproject projectname
+#run django web development server
+cd projectname
+python manage.py runserver --->8000
+python manage.py runserver  9000--->9000
+#create application
+python manage.py startapp track
+

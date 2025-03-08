@@ -1,0 +1,44 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {%block tit%}
+            Parent Page
+        {%endblock%}
+    </title>
+    <script src="{%static 'js/asd.js'%}"></script>
+    <link rel="stylesheet" href="{%static 'css/asd.css'%}">
+</head>
+<body >
+<table border="1" width="100%" height="100%">
+    <tr>
+        <td>
+            <img src="{%static 'imgs/pic2.jpeg'%}" width="20%" height="20%">
+            <a href="">Add Trainee</a>
+            <a href="">Trainee</a>
+            <a href="">Add Track</a>
+            <a href="">Track</a>
+            <a href="">Logout</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {%block content%}
+            <h1>Parent content</h1>
+            {%endblock%}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1>copy.</h1>
+        </td>
+    </tr>
+</table>
+</body>
+<script>
+    {%block js%}
+    {%endblock%}
+</script>
+</html>
