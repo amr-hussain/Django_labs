@@ -1,9 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>courses</title>
+    <style>
+            table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: gray;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -12,26 +34,16 @@
     </header>
 
     <main>
-        <h2>{% block heading %}parent Heading{% endblock %}</h2>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>course ID</th>
-                <th>course Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for course in list %}
-                <tr>
-                    {% for item in course %}
-                        <td>{{ item }}</td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <h2>{% block heading %} parent Heading {% endblock %}</h2>
+
+        {% block content %}
+
+        {% endblock %}
+
     </main>
-
+<div>
+    <img src="{% static 'images/test.png' %}">
+</div>
 </body>
 </html>

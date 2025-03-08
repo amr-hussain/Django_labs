@@ -1,43 +1,11 @@
+{% extends "parent_course.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>courses</title>
-    <style>
-            table {
-            width: 50%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
 
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
+{% block heading %}
+    <h1> this is a heading from the child show_courses.html</h1>
+{% endblock %}
 
-        th {
-            background-color: gray;
-            color: white;
-        }
-
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Welcome</h1>
-    </header>
-
-    <main>
-
-        <h2>{% block heading %} parent Heading {% endblock %}</h2>
-
-        {% block content %}
+{% block content %}
         <table border="1">
             <thead>
                 <tr>
@@ -60,11 +28,7 @@
                 {% endfor %}
             </tbody>
         </table>
+            <div>
+                <a href='{% url "add" %}'>add a new course</a>
+            </div>
         {% endblock %}
-
-    </main>
-<div>
-    <img src="{% static 'images/test.png' %}">
-</div>
-</body>
-</html>

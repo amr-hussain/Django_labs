@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1c156677-c3a9-4ca0-b5a3-14e52286e931" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/ITIan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/ITIan/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/delete_course.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/update_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/add_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/add_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/add_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/show_courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/show_courses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/course/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/course/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/course/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/course/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/templates/parent_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/templates/parent_course.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,7 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -48,6 +51,7 @@
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/media/king/16D8CD34D8CD1343/ITI_fullstack_dev/Django/day1_lab/ITIan/templates/trainee",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -159,7 +163,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1741431627229</updated>
-      <workItem from="1741431628349" duration="23555000" />
+      <workItem from="1741431628349" duration="25744000" />
     </task>
     <servers />
   </component>
