@@ -15,6 +15,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Django/sodemo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day1_lab/ITIan" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.12 (Django)" jdkType="Python SDK" />

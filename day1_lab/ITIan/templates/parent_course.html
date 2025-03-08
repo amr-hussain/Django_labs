@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courses</title>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome</h1>
+    </header>
+
+    <main>
+        <h2>{% block heading %}parent Heading{% endblock %}</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>course ID</th>
+                <th>course Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in list %}
+                <tr>
+                    {% for item in course %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </main>
+
+</body>
+</html>

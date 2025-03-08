@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h2>Add New Trainee</h2>
-
+{% extends "parent.html" %}
+{% block content %}
+    <h1>updating</h1>
     <form method="post">
-        {% csrf_token %}
-        <label for="name">Name:</label>
-        <input type="text" name="name" required>
-        <br><br>
+    <label for="id">enter id:</label>
+    <input type="number" name="id" required>
+    <br><br>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br><br>
 
-        <button type="submit">Add Trainee</button>
+    <label for="email">new Email:</label>
+    <input type="email" name="email" required>
+    <br><br>
+
+    <label for="name">new name:</label>
+    <input type="text" name="name" required>
+    <br><br>
+
+    <button type="submit">Add Trainee</button>
     </form>
-
-</body>
-</html>
+{% endblock %}
