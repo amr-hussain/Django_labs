@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Trainee
 
 # def delete_trainee(request, trainee_id):
 #     for key, trainer  in trainee_date.items():
@@ -18,8 +19,18 @@ def delete_trainee(request):
 def update_trainee(request):
     return render(request, "trainee/update_trainee.html")
 
+
 def trainee_list(request):
-    return render(request, "trainee/update_trainee.html")
+    trainees = Trainee.objects.all()
+    return render(request, "trainee/trainee_list.html", {"trainees": trainees})
 
 
 
+#  if request.method == 'POST':
+#         course_id = request.POST.get('course_id')
+#         course_name = request.POST.get('course_name')
+#         global course_data
+#         course_data.append([course_id, course_name])
+#         return HttpResponse("Course stored successfully!")
+#     else:
+#         return render(request, 'course/add_course.html')

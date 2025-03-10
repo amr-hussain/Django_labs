@@ -10,7 +10,7 @@ urlpatterns = [
     # path('delete/<int:trainee_id>', delete_trainee, name="delete"),
     # path('add/', add_trainee, name="add"),
     # path('update', update_trainee, name="update"),
-    # path('trainees/', list_trainees, name="show"),
+    path('trainee_list/', trainee_list, name="trainee_list"),
     # path('show/', show, name="show"),
 ]
 # mapping the images/ to media root
