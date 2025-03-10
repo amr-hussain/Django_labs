@@ -21,6 +21,7 @@ def update_trainee(request):
 
 
 def trainee_list(request):
+    # return HttpResponse("<h1> yes this is working </h1>")
     trainees = Trainee.objects.all()
     return render(request, "trainee/trainee_list.html", {"trainees": trainees})
 
