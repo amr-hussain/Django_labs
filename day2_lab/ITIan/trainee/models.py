@@ -9,7 +9,7 @@ class Trainee(models.Model):
     email=models.EmailField(max_length=50)
     phone=models.CharField(max_length=50)
     # addding the personal photo to the root dir of media "media/trainee_photos"
-    photo=models.ImageField(upload_to='media/trainee_photos')
+    photo=models.ImageField(upload_to='trainee_photos')
     # adding a flag for activation 
     deleted=models.BooleanField(default=False)
 
