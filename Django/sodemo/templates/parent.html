@@ -8,7 +8,7 @@
             Parent Page
         {%endblock%}
     </title>
-    <script src="{%static 'js/asd.js'%}"></script>
+<!--    <script src="{%static 'js/asd.js'%}"></script>-->
     <link rel="stylesheet" href="{%static 'css/asd.css'%}">
 </head>
 <body >
@@ -16,8 +16,8 @@
     <tr>
         <td>
             <img src="{%static 'imgs/pic2.jpeg'%}" width="20%" height="20%">
-            <a href="">Add Trainee</a>
-            <a href="">Trainee</a>
+            <a href="{%url 'tradd' %}">Add Trainee</a>
+            <a href="{%url 'trall'%}">Trainee</a>
             <a href="">Add Track</a>
             <a href="">Track</a>
             <a href="">Logout</a>
