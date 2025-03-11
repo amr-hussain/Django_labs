@@ -41,16 +41,19 @@ def trainee_delete(request, trainee_id):
 
 def trainee_update(request, trainee_id):
     trainee = Trainee.objects.get(id=trainee_id)
+
     if request.method == "POST":
         action = request.POST.get("action")
-        if action == "YES":
-            trainee.deleted = True
+        if action == "Save":
+            trainee.name = request.POST.get('name')
+            trainee.email = request.POST.get('email')
+            trainee.phone = request.POST.get('phone')
+            trainee.photo = request.FILES.get('photo')
+            trainee.deleted = False
             trainee.save()
-            return redirect('main')
-        elif action == "NO":
-            return redirect('main')
-
-    return render(request, "trainee/update_trainee.html" ,context={"trainee": trainee})
+        return redirect('main') 
+    else:
+        return render(request, "trainee/update_trainee.html" ,context={"trainee": trainee})
 
 
 def trainee_list(request):

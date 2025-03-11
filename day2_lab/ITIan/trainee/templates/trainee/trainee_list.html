@@ -62,7 +62,7 @@ th {
                 <td>{{ trainee.name }}</td>
                 <td>{{ trainee.email }}</td>
                 <td>{{ trainee.phone }}</td>
-                <td><img src="{{ trainee.photo }}" alt="image not found" style="height: 100px;"></td>
+                <td><img src="{{ trainee.photo.url }}" alt="image not found" style="height: 100px;"></td>
             </tr>
             {% endfor %}
         </tbody>

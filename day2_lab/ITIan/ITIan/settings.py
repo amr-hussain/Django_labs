@@ -141,10 +141,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # MEDIA_ROOT=BASE_DIR/'media/'
 
 # URL to access media files in development
-MEDIA_URL = '/media/'
-
-# Physical path where media files are stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL='media/'
+#physical path
+MEDIA_ROOT=BASE_DIR/'media/'
 
 # adding static dirs 
 STATIC_URL = 'static/'
