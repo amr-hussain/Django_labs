@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'course.apps.CourseConfig',#'track',#not prof
+    'course.apps.CourseConfig',
     'trainee.apps.TraineeConfig',
 ]
 
