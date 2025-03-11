@@ -48,7 +48,7 @@
 
 
 {% block content %}
-    <form method="post">
+    <form method="post"  enctype="multipart/form-data">
         {% csrf_token %}
         <label for="phone">phone:</label>
         <input type="number" name="phone" required>
@@ -62,7 +62,7 @@
         <input type="text" name="name" required>
         <br><br>
 
-        <label for="phtot">photo:</label>
+        <label for="photo">photo:</label>
         <input type="file" name="photo" required>
         <br><br>
         <button type="submit">Add Trainee</button>
