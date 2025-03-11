@@ -39,9 +39,18 @@ def trainee_delete(request, trainee_id):
 
     return render(request, "trainee/delete_trainee.html", context={"trainee": trainee})
 
-def trainee_update(request):
-    
-    return render(request, "trainee/update_trainee.html")
+def trainee_update(request, trainee_id):
+    trainee = Trainee.objects.get(id=trainee_id)
+    if request.method == "POST":
+        action = request.POST.get("action")
+        if action == "YES":
+            trainee.deleted = True
+            trainee.save()
+            return redirect('main')
+        elif action == "NO":
+            return redirect('main')
+
+    return render(request, "trainee/update_trainee.html" ,context={"trainee": trainee})
 
 
 def trainee_list(request):
