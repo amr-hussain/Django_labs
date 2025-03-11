@@ -1,15 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h2>Add New Trainee</h2>
 
+{% extends 'parent.html' %}
+
+
+{% block title %}
+    Add Trainee
+{% endblock %}
+
+{%block header%}
+    ADD page
+{%endblock%}
+
+
+
+
+{% block css %}
+    h1{
+        text-align: center;
+    }
+    form {
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: whitesmoke;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin: 10px 0;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px;
+        margin: 10px 0;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+{% endblock %}
+
+
+{% block content %}
     <form method="post">
-        <label for="id">id:</label>
-        <input type="number" name="id" required>
+        {% csrf_token %}
+        <label for="phone">phone:</label>
+        <input type="number" name="phone" required>
         <br><br>
 
         <label for="email">Email:</label>
@@ -20,8 +64,9 @@
         <input type="text" name="name" required>
         <br><br>
 
+        <label for="phtot">photo:</label>
+        <input type="file" name="photo" required>
+        <br><br>
         <button type="submit">Add Trainee</button>
     </form>
-
-</body>
-</html>
+{% endblock %}

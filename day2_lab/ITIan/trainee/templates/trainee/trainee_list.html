@@ -20,15 +20,26 @@ th {
     background-color: gray;
     color: white;
 }
-#add_course{
+.secondary{
     display: flex;
     justify-content: center;
-    width: 100%;
+    background-color: whitesmoke;
+}
+#add_trainee {
+    display: flex;
+    justify-content: center;
+    
+}
+#add_trainee button {
+    background-color: whitesmoke;
     height: 50px;
     text-align: center;
     font-size: x-large;
-    color: red;
-    background-color: whitesmoke;
+    background-color: cyan;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 0;
+    
 }
 {% endblock %}
 
@@ -56,4 +67,9 @@ th {
             {% endfor %}
         </tbody>
     </table>
+    <div class="secondary">
+        <a  id="add_trainee" href="{% url 'add' %}">
+            <button type="button">Add Trainee</button>
+        </a>
+    </div>
 {% endblock %} 
