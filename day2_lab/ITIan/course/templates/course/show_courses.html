@@ -15,18 +15,25 @@
                 <tr>
                     <th>course ID</th>
                     <th>course Name</th>
+                    <th>actions</th>
                 </tr>
             </thead>
             <tbody>
-                {% for course in courses %}  <!-- Iterate over courses -->
-                <tr>
-                    <td>{{ course.id }}</td>
-                    <td>{{ course.name }}</td>
-                </tr>
+                {% for course in list %}
+                    <tr>
+                        {% for item in course %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                        <td>
+                            <a href='{% url "update" course.0 %}'>update</a>
+                            <a href='{% url "delete" course.0 %}'>delete</a>
+                        </td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
             <div id="add_course">
+
                 <div>
                     <a href='{% url "add" %}'>add a new course</a>
                 </div>
