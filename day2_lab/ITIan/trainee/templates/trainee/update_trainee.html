@@ -97,11 +97,11 @@ button {
                     <td>{{ trainee.name }}</td>
                     <td>{{ trainee.email }}</td>
                     <td>{{ trainee.phone }}</td>
-                    <td><img src="{{ trainee.photo }}" alt="image not found" style="height: 100px;"></td>
+                    <td><img src="{{ trainee.photo.url }}" alt="image not found" style="height: 100px;"></td>
                 </tr>
         </table>
 
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 <table>

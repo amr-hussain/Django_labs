@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c156677-c3a9-4ca0-b5a3-14e52286e931" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/show_courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course/show_courses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/static/css/show_courses.css" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/static/css/show_courses.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/static/images/testpng" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/static/images/test.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_lab/ITIan/templates/parent_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/day1_lab/ITIan/templates/parent_course.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -31,39 +30,42 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2u20znXFdyi7b8CQVop4qS8PgUH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django tests.Test: .executor": "Run",
-    "Python.views.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/media/king/16D8CD34D8CD1343/ITI_fullstack_dev/Django/day1_lab/ITIan/templates/trainee",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django tests.Test: .executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/king/16D8CD34D8CD1343/ITI_fullstack_dev/Django&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/day2_lab/ITIan" />
       <recent name="$PROJECT_DIR$/day1_lab/ITIan/templates/trainee" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/day1_lab/ITIan/course/templates/course" />
       <recent name="$PROJECT_DIR$/day1_lab/ITIan/trainee" />
       <recent name="$PROJECT_DIR$/day1_lab/ITIan/trainee/" />
@@ -162,7 +164,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1741431627229</updated>
-      <workItem from="1741431628349" duration="26403000" />
+      <workItem from="1741431628349" duration="27021000" />
+      <workItem from="1741527518488" duration="570000" />
+      <workItem from="1741598766011" duration="19755000" />
+      <workItem from="1741764706577" duration="6386000" />
     </task>
     <servers />
   </component>
