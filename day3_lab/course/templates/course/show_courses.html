@@ -1,0 +1,41 @@
+{% extends "parent_course.html" %}
+{% load static %}
+
+{% block styling %}
+    <link rel="stylesheet" href="{% static 'css/show_courses.css' %}">
+{% endblock %}
+
+{% block heading %}
+        <h1> this is a heading from the child show_courses.html</h1>
+{% endblock %}
+
+{% block content %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>course ID</th>
+                    <th>course Name</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in list %}
+                    <tr>
+                        {% for item in course %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                        <td>
+                            <a href='{% url "update" course.0 %}'>update</a>
+                            <a href='{% url "delete" course.0 %}'>delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            <div id="add_course">
+
+                <div>
+                    <a href='{% url "add" %}'>add a new course</a>
+                </div>
+            </div>
+        {% endblock %}

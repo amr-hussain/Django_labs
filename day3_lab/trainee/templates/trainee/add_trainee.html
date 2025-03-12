@@ -1,0 +1,99 @@
+
+{% extends 'parent.html' %}
+
+
+{% block title %}
+    Add Trainee
+{% endblock %}
+
+{%block header%}
+    ADD page
+{%endblock%}
+
+
+{% block css %}
+    *{
+        box-sizing: border-box;
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        width: 40%;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: whitesmoke;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .field{
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    label {
+
+        width: 20%;
+        font-size: 26px;
+    ;
+        margin: 10px 0;
+        border
+    }
+
+    input {
+
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px;
+        margin: 10px 0;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+{% endblock %}
+
+
+{% block content %}
+
+    <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Add Trainee</h2>
+        <div class="field">
+            <label for="name">name:</label>
+            <input type="text" name="name" required>
+        </div>
+        <br>
+
+        <div class="field">
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+        </div>
+        <br>
+        
+        <div class="field">
+        <label for="phone">phone:</label>
+        <input type="number" name="phone" required>
+        </div>
+        <br>
+
+        <div class="field">
+        <label for="photo">photo:</label>
+        <input type="file" name="photo" required>
+        </div>
+        <br>
+
+        <button type="submit">Add Trainee</button>
+    </form>
+{% endblock %}
