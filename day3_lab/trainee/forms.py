@@ -7,12 +7,11 @@ from .models import Trainee
 #     class Meta :
 #         model = models.Trainee
 #         fields = ['name','email','phone','photo']
-class Traineeaddmodel(forms.ModelForm):
+class update_trainee_form(forms.ModelForm):
     class Meta:
         model= Trainee
-        # fields=['name','email']
         fields='__all__'
-        exclude=['isactive']
+        exclude=['deleted']
 
 # #############################################################
 

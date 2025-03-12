@@ -41,9 +41,7 @@
 
         width: 20%;
         font-size: 26px;
-    ;
         margin: 10px 0;
-        border
     }
 
     input {
@@ -67,35 +65,6 @@
 
 {% block content %}
 
-    <!-- <form method="post"  enctype="multipart/form-data">
-        {% csrf_token %}
-        <h2>Add Trainee</h2>
-        <div class="field">
-            <label for="name">name:</label>
-            <input type="text" name="name" required>
-        </div>
-        <br>
-
-        <div class="field">
-            <label for="email">Email:</label>
-            <input type="email" name="email" required>
-        </div>
-        <br>
-        
-        <div class="field">
-        <label for="phone">phone:</label>
-        <input type="number" name="phone" required>
-        </div>
-        <br>
-
-        <div class="field">
-        <label for="photo">photo:</label>
-        <input type="file" name="photo" required>
-        </div>
-        <br>
-
-        <button type="submit">Add Trainee</button>
-    </form> -->
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}  <!-- Django will render form fields with labels -->

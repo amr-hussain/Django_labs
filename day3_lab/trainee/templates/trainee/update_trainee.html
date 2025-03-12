@@ -53,21 +53,35 @@ h1{
     text-align: center;
 }
 
-label {
-    display: block;
-    margin: 10px 0;
+
+form {
+    width: 50%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+
+}
+form label {
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-input {
+form input, form select {
+    padding: 8px;
+    border: 1px solid blue;
+    border-radius: 5px;
     width: 100%;
-    padding: 4px;
-
-    box-sizing: border-box;
 }
+form input[type="file"] {
+    border: none;
+    width: 50%;
+}
+
 
 button {
     padding: 10px;
-
+    width: 20%;
     background-color: red;
     color: white;
     border: none;
@@ -103,30 +117,8 @@ button {
 
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <table>
-                <table>
-
-                <tr>
-                    <th rowspan="2">New Values</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Photo</th>
-                </tr>
-                <tr>
-                    <td>{{ trainee.id }}</td>
-                    <td><input type="text" name="name" required></td>
-                    <td><input type="email" name="email" required></td>
-                    <td><input type="number" name="phone" required></td>
-                    <td><input type="file" name="photo" required></td>
-                </tr>
-            </table>
-            <div class="confirm">
-                <button type="submit" name="action" value="Save">Save</button>
-                <button type="reset">Reset</button>
-                <button type="submit" name="action" value="Cancel">Cancel</button>
-            </div>
+            {{ form.as_p }}
+            <button type="submit">Save</button>
         </form>
 
     </div>
