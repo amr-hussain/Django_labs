@@ -8,5 +8,7 @@ urlpatterns = [
     path('add', trainee_add, name="add"),
     path('update/<int:trainee_id>', trainee_update, name="update"),
     path('delete/<int:trainee_id>', trainee_delete, name="delete"),
+    # path('contact', contact_view, name="contact"),
+
     
 ]

@@ -67,7 +67,7 @@
 
 {% block content %}
 
-    <form method="post"  enctype="multipart/form-data">
+    <!-- <form method="post"  enctype="multipart/form-data">
         {% csrf_token %}
         <h2>Add Trainee</h2>
         <div class="field">
@@ -95,5 +95,11 @@
         <br>
 
         <button type="submit">Add Trainee</button>
+    </form> -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Django will render form fields with labels -->
+        <button type="submit">Submit</button>
     </form>
+    
 {% endblock %}
