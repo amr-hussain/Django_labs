@@ -1,2 +1,23 @@
 Django/
 main_repo/
+.gitignore
+Django/
+.idea
+
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore IDE/editor configurations
+.idea/
+.vscode/
+
+# Ignore logs and environment files
+*.log
+.env
+
+
+Django/
+main_repo/
+
