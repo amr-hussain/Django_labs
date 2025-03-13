@@ -1,7 +1,6 @@
-Django/
+
 main_repo/
 .gitignore
-Django/
 .idea
 
 
@@ -17,7 +16,5 @@ env/
 *.log
 .env
 
-
-Django/
 main_repo/
 
