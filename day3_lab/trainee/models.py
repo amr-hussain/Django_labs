@@ -1,4 +1,5 @@
 from django.db import models
+from course.models import Course
 from django.core.files.storage import default_storage #to get and modify the file path
 # Create your models here.
 
@@ -12,6 +13,9 @@ class Trainee(models.Model):
     photo=models.ImageField(upload_to='trainee/photos')
     # adding a flag for activation 
     deleted=models.BooleanField(default=False)
+    course = models.ForeignKey(Course, null=True, on_delete=models.CASCADE)
+
+
 
     def __str__(self):
         return self.name 

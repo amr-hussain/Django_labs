@@ -15,19 +15,21 @@
                 <tr>
                     <th>course ID</th>
                     <th>course Name</th>
-                    <th>actions</th>
+                    <th>course Price</th>
+                    <th colspan="2">actions</th>
                 </tr>
             </thead>
             <tbody>
-                {% for course in list %}
+                {% for course in courses %}
                     <tr>
-                        {% for item in course %}
-                            <td>{{ item }}</td>
-                        {% endfor %}
+                        <td>{{ course.id }}</td>
+                        <td>{{ course.name }}</td>
+                        <td>{{ course.price }}</td>
                         <td>
-                            <a href='{% url "update" course.0 %}'>update</a>
-                            <a href='{% url "delete" course.0 %}'>delete</a>
-                        </td>
+                            <a href='{% url "update" course.id %}'>update</a>
+                        </td>  
+                        <td>
+                            <a href='{% url "delete" course.id %}'>delete</a>
                     </tr>
                 {% endfor %}
             </tbody>

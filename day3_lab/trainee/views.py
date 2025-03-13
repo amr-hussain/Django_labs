@@ -16,9 +16,10 @@ def trainee_add(request):
             email = form.cleaned_data["email"]
             phone = form.cleaned_data["phone"]
             photo = form.cleaned_data["photo"]
+            course = form.cleaned_data["course"]
 
     
-            trainee = Trainee(name=name, email=email, phone=phone, photo=photo)
+            trainee = Trainee(name=name, email=email, phone=phone, photo=photo, course=course)
             trainee.save()
             return redirect('main') 
     else:
@@ -62,5 +63,3 @@ def trainee_list(request):
     # return HttpResponse("<h1> yes this is working </h1>")
     trainees = Trainee.objects.filter(deleted=False)
     return render(request, "trainee/trainee_list.html", context= {"trainees": trainees})
-
-

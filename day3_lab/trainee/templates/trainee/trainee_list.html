@@ -72,6 +72,7 @@ img {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Course</th>
                 <th>Photo</th>
                 <th colspan="2">Options</th>
             </tr>
@@ -83,12 +84,13 @@ img {
                 <td>{{ trainee.name }}</td>
                 <td>{{ trainee.email }}</td>
                 <td>{{ trainee.phone }}</td>
+                <td>{{ trainee.course.name }}</td>
                 <td><img src="{{ trainee.photo.url }}" alt="image not found"></td>
-                <td><a  href="{% url 'update' trainee.id %}">
+                <td><a  href="{% url 'update_trainee' trainee.id %}">
                         <button id="update" type="button">Update</button>
                     </a>
                 </td>
-                <td><a  href="{% url 'delete' trainee.id %}">
+                <td><a  href="{% url 'delete_trainee' trainee.id %}">
                     <button id="delete" type="button">Delete</button> 
                     </a>
                 </td>
@@ -97,8 +99,9 @@ img {
         </tbody>
     </table>
     <div class="secondary">
-        <a   href="{% url 'add' %}">
+        <a   href="{% url 'add_trainee' %}">
             <button id="add" type="button">Add Trainee</button>
         </a>
     </div>
+
 {% endblock %} 

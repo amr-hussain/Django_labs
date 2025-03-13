@@ -22,3 +22,4 @@ class add_trainee_form(forms.Form):
     email = forms.EmailField(label="Email", required=True)
     phone = forms.CharField(max_length=15, label="Phone", required=True)
     photo = forms.ImageField(label="Photo", required=True)
+    course = forms.ModelChoiceField(queryset=models.Course.objects.all(), label="Course", required=False)

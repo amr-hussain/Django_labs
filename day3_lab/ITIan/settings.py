@@ -83,7 +83,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'iti_db',
+        'NAME': 'test',
         'USER': 'postgres',
         'PASSWORD': 'amr',
         'HOST': 'localhost',
