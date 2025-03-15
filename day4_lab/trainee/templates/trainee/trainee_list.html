@@ -1,0 +1,107 @@
+{% extends 'parent.html' %}
+
+{% block css %}
+
+table {
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    border: 5px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: gray;
+    color: white;
+}
+.secondary{
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+a {
+    text-decoration: none;
+}
+button{
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 0; 
+    border-radius: 10px;
+}
+#add {
+    height: 50px;
+    text-align: center;
+    font-size: x-large;
+    background-color: limegreen;
+}
+#delete {
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    background-color: red;
+}
+
+#update {
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    background-color: yellow;
+}
+
+
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+}
+{% endblock %}
+
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Course</th>
+                <th>Photo</th>
+                <th colspan="2">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trainee in trainees %}
+            <tr>
+                <td>{{ trainee.id }}</td>
+                <td>{{ trainee.name }}</td>
+                <td>{{ trainee.email }}</td>
+                <td>{{ trainee.phone }}</td>
+                <td>{{ trainee.course.name }}</td>
+                <td><img src="{{ trainee.photo.url }}" alt="image not found"></td>
+                <td><a  href="{% url 'update_trainee' trainee.id %}">
+                        <button id="update" type="button">Update</button>
+                    </a>
+                </td>
+                <td><a  href="{% url 'delete_trainee' trainee.id %}">
+                    <button id="delete" type="button">Delete</button> 
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="secondary">
+        <a   href="{% url 'add_trainee' %}">
+            <button id="add" type="button">Add Trainee</button>
+        </a>
+    </div>
+
+{% endblock %} 
