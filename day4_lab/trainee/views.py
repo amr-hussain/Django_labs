@@ -8,6 +8,8 @@ from django.views.generic import DeleteView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView #is simpler but require method overriding to handle get_context_data(), post, put methods, don't use if unless for direct redirecting using template_name 
 
 
 
@@ -114,7 +116,8 @@ class TraineeUpdate(UpdateView):
 #     return render(request, "trainee/trainee_list.html", context= {"trainees": trainees})
 
 # list_trainee as class-based view
-class TraineeList(View):
+# Authorizing ,, applying authorization
+class TraineeList(View, LoginRequiredMixin):
     def get(self, request):
         trainees = Trainee.objects.filter(deleted=False)
         return render(request, "trainee/trainee_list.html", context= {"trainees": trainees})

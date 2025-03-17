@@ -3,7 +3,7 @@ from course.models import Course
 from django.core.files.storage import default_storage #to get and modify the file path
 
 # Utilizing pre-built dnago authentication
-from django.contrib.auth.models import USER
+from django.contrib.auth.models import User
 
 
 class Trainee(models.Model):
