@@ -1,8 +1,9 @@
 from django.db import models
 from course.models import Course
 from django.core.files.storage import default_storage #to get and modify the file path
-# Create your models here.
 
+# Utilizing pre-built dnago authentication
+from django.contrib.auth.models import USER
 
 
 class Trainee(models.Model):
