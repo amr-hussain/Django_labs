@@ -28,17 +28,13 @@ th {
 a {
     text-decoration: none;
 }
-button{
-    cursor: pointer;
-    padding: 10px;
-    margin: 10px 0; 
-    border-radius: 10px;
-}
+
 #add {
     height: 50px;
     text-align: center;
     font-size: x-large;
     background-color: limegreen;
+
 }
 #delete {
     height: 40px;
@@ -61,6 +57,13 @@ img {
     height: 100px;
     border-radius: 15px;
 }
+{% endblock %}
+
+{% block logout_button %}
+    <form action="{% url 'logout' %}" method="post" >
+        {% csrf_token %}
+        <button class="home-page-button" type="submit">Logout</button>
+    </form>
 {% endblock %}
 
 
@@ -90,7 +93,8 @@ img {
                         <button id="update" type="button">Update</button>
                     </a>
                 </td>
-                <td><a  href="{% url 'delete_trainee' trainee.id %}">
+                <td>
+                    <a  href="{% url 'delete_trainee' trainee.id %}">
                     <button id="delete" type="button">Delete</button> 
                     </a>
                 </td>

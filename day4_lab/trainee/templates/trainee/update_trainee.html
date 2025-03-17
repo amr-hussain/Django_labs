@@ -79,13 +79,13 @@ form input[type="file"] {
 }
 
 
-button {
-    padding: 10px;
-    width: 20%;
+#submit {
+    <!-- padding: 10px; -->
+    <!-- width: 20%; -->
     background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
+    <!-- color: white; -->
+    <!-- border: none; -->
+    <!-- cursor: pointer; -->
 }
 {% endblock %}
 
@@ -118,7 +118,7 @@ button {
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Save</button>
+            <button id="submit" type="submit" style="background-color: limegreen; padding:12px 22px;">Save</button>
         </form>
 
     </div>

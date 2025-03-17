@@ -6,6 +6,7 @@ from .forms import *
 from django.views import View
 from django.views.generic import DeleteView, UpdateView
 from django.urls import reverse_lazy
+from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -35,7 +36,7 @@ from django.views.generic import TemplateView #is simpler but require method ove
 #     return render(request, "trainee/add_trainee.html", {"form": form})
 
 # class-based trainee_add 
-class TraineeAdd(View):
+class TraineeAdd(LoginRequiredMixin, View):
     def get(self, request):
         form = add_trainee_form()
         return render(request, "trainee/add_trainee.html", {"form": form})
@@ -67,7 +68,8 @@ class TraineeAdd(View):
 
 #     return render(request, "trainee/delete_trainee.html", context={"trainee": trainee})
 # trainee_delete as class-based view
-class TraineeDelete(DeleteView):
+# adding delete auth , make sure the class LoginRequiredMixin is inherited first !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class TraineeDelete(LoginRequiredMixin, DeleteView ):
     model = Trainee
     template_name = "trainee/delete_trainee.html"
     success_url = reverse_lazy("main") 
@@ -100,7 +102,7 @@ class TraineeDelete(DeleteView):
 #     context = {"form": form, "trainee": trainee}
 #     return render(request, "trainee/update_trainee.html", context)
 # trainee_update as class-based view
-class TraineeUpdate(UpdateView):
+class TraineeUpdate(LoginRequiredMixin, UpdateView):
     model = Trainee
     # form_class = update_trainee_form
     fields='__all__'
@@ -116,8 +118,8 @@ class TraineeUpdate(UpdateView):
 #     return render(request, "trainee/trainee_list.html", context= {"trainees": trainees})
 
 # list_trainee as class-based view
-# Authorizing ,, applying authorization
-class TraineeList(View, LoginRequiredMixin):
+
+class TraineeList(View):
     def get(self, request):
         trainees = Trainee.objects.filter(deleted=False)
         return render(request, "trainee/trainee_list.html", context= {"trainees": trainees})
@@ -129,11 +131,11 @@ class Login(LoginView):
     LoginForm = LoginFormView
     template_name = "auth/login.html"
     
-class Logout(View):
-    def get(self, request):
-        Logout(request)
-        return redirect("login") 
-        # return HttpResponse('<h1>logout from view</h1>')
+class Logout(View): 
+    
+    def post(self, request):
+        logout(request)
+        return redirect("main") 
     
 
 class Signup(View):
@@ -145,6 +147,7 @@ class Signup(View):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # Login(request, user)  # Auto-login after signup
-            return redirect("main")
+            login(request, user)  # Auto-login after signup
+            return redirect("login")
+        
         return render(request, "auth/signup.html", {"form": form})

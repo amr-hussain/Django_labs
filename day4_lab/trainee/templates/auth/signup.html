@@ -1,33 +1,58 @@
-
-
-
-
 {% block content %}
 <div class="container">
     <h2>Signup</h2>
-    
+
     <form method="post">
         {% csrf_token %}
         
+        {% if form.non_field_errors %}
+        <div class="error">
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
         <div class="form-group">
             <label for="{{ form.username.id_for_label }}">Username</label>
             {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error">
+                    {% for error in form.username.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
 
         <div class="form-group">
             <label for="{{ form.password1.id_for_label }}">Password</label>
             {{ form.password1 }}
+            {% if form.password1.errors %}
+                <div class="error">
+                    {% for error in form.password1.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
 
         <div class="form-group">
             <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
             {{ form.password2 }}
+            {% if form.password2.errors %}
+                <div class="error">
+                    {% for error in form.password2.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
 
         <button type="submit">Signup</button>
     </form>
 
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
 </div>
 
 <style>
@@ -56,17 +81,19 @@
         flex-direction: column;
     }
     .container form .form-group {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
     .container form .form-group label {
         margin-bottom: 0.5rem;
         color: #555;
     }
     .container form .form-group input {
-        padding: 0.75rem;
+        padding: 0.5rem;
         border: 1px solid #ccc;
         border-radius: 4px;
         width: 100%;
+        font-size: 1.25rem;
+        color: #010e1b;
     }
     .container form button {
         padding: 0.75rem;
@@ -90,6 +117,21 @@
     }
     .container p a:hover {
         text-decoration: underline;
+    }
+    .error {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+    .error p {
+        margin: 0;
+        padding: 0;
+    }
+    .form-group input.error {
+        border-color: #dc3545;
+    }
+    .error + .error {
+        margin-top: 0.5rem;
     }
 </style>
 {% endblock %}
