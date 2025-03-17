@@ -7,6 +7,7 @@ from django.views import View
 from django.views.generic import DeleteView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
 
 
 
@@ -127,8 +128,20 @@ class Login(LoginView):
     
 class Logout(View):
     def get(self, request):
-        return HttpResponse('<h1>logout from view</h1>')
+        Logout(request)
+        return redirect("login") 
+        # return HttpResponse('<h1>logout from view</h1>')
     
+
 class Signup(View):
     def get(self, request):
-        return HttpResponse('<h1>signup from view</h1>')
+        form = UserCreationForm()
+        return render(request, "auth/signup.html", {"form": form})
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Login(request, user)  # Auto-login after signup
+            return redirect("main")
+        return render(request, "auth/signup.html", {"form": form})

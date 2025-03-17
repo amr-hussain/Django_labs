@@ -3,6 +3,8 @@ from course.models import Course
 from django.core.files.storage import default_storage #to get and modify the file path
 # Create your models here.
 
+
+
 class Trainee(models.Model):
 
     id=models.AutoField(primary_key=True)

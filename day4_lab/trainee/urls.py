@@ -8,7 +8,6 @@ from django.contrib.auth.views import LoginView
 urlpatterns = [
    
     path("login/", Login.as_view(), name="login"),
-
     path('', TraineeList.as_view(), name="main"),
     path('add', TraineeAdd.as_view(), name="add_trainee"),
     path('update/<pk>', TraineeUpdate.as_view(), name="update_trainee"),
@@ -18,7 +17,4 @@ urlpatterns = [
     path('signup', Signup.as_view(), name="signup"),
 
 
-    # path('contact', contact_view, name="contact"),
-
-    
 ]
