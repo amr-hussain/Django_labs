@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courses</title>
+    {% block styling %}{% endblock %}
+</head>
+<body>
+
+    <header>
+        <h1>Welcome</h1>
+    </header>
+
+    <main>
+
+        <h2>{% block heading %} parent Heading {% endblock %}</h2>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+<div>
+    <img src="{% static 'images/test.png' %}">
+</div>
+</body>
+</html>
