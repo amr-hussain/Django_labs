@@ -170,25 +170,25 @@ from rest_framework import generics
 ############################
 # using APIView to create generics.ListCreateAPIView
 ############################
-class TraineeListCreateView(APIView):
-    def get(self, request):
-        trainees = Trainee.objects.all()  # Get all Trainees
-        serializer = TraineeSerializer(trainees, many=True)
-        return Response(serializer.data)  # Return JSON response
+# class TraineeListCreateView(APIView):
+#     def get(self, request):
+#         trainees = Trainee.objects.all()  # Get all Trainees
+#         serializer = TraineeSerializer(trainees, many=True)
+#         return Response(serializer.data)  # Return JSON response
 
-    def post(self, request):
-        serializer = TraineeSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request):
+#         serializer = TraineeSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 ######################
 #using generics views
 ####################### 
-# class TraineeLC(generics.ListCreateAPIView):
-#     queryset = Trainee.objects.all()
-#     serializer_class = TraineeSerializer
+class TraineeLC(generics.ListCreateAPIView):
+    queryset = Trainee.objects.all()
+    serializer_class = TraineeSerializer
 
 class TraineeRUD(generics.RetrieveUpdateDestroyAPIView):
     queryset = Trainee.objects.all()

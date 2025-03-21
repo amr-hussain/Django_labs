@@ -155,3 +155,6 @@ STATICFILES_DIRS=['static']
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'main'
 LOGOUT_REDIRECT_URL = 'login'
+
+# used for API requests, local ones.
+API_BASE_URL = 'http://localhost:8000'

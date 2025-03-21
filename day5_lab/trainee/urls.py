@@ -15,8 +15,8 @@ urlpatterns = [
     path('logout', Logout.as_view(), name="logout"),
     path('login', Login.as_view(), name="login"),
     path('signup', Signup.as_view(), name="signup"),
-    # path('api', TraineeLC.as_view(), name='apiLC'),
-    path('api', TraineeListCreateView.as_view(), name='product-list-create'),
+    path('api', TraineeLC.as_view(), name='apiLC'),
+    # path('api', TraineeListCreateView.as_view(), name='product-list-create'),
     path('api/<int:pk>', TraineeRUD.as_view(), name="apiRUD"),
 ]
 
