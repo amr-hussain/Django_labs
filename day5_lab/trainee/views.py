@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView #is simpler but require method overriding to handle get_context_data(), post, put methods, don't use if unless for direct redirecting using template_name 
 
 ############################
@@ -74,7 +74,7 @@ class TraineeAdd(LoginRequiredMixin, View):
 #     return render(request, "trainee/delete_trainee.html", context={"trainee": trainee})
 # trainee_delete as class-based view
 # adding delete auth , make sure the class LoginRequiredMixin is inherited first !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-class TraineeDelete(LoginRequiredMixin, DeleteView ):
+class TraineeDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView ):
     model = Trainee
     template_name = "trainee/delete_trainee.html"
     success_url = reverse_lazy("main") 
@@ -89,8 +89,13 @@ class TraineeDelete(LoginRequiredMixin, DeleteView ):
             return super().post(request, *args, **kwargs)
         #don't execute the post method, but redirect to main without deltetion
         return redirect(reverse_lazy("main"))
+    
+    # added these method to authorize only admin users delete trainees
+    def test_func(self):
+        return self.request.user.is_superuser  
 
-
+    def handle_no_permission(self):
+        return HttpResponse("<h1 style='text-align:center; color:red;'>You are not authorized to delete trainees</h1></center>") 
 
 
 # using forms.ModelForm
