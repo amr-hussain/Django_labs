@@ -127,6 +127,28 @@ class TraineeList(View):
         trainees = Trainee.objects.filter(deleted=False)
         return render(request, "trainee/trainee_list.html", context= {"trainees": trainees})
     
+# from rest_framework.permissions import IsAuthenticated
+# from rest_framework_simplejwt.authentication import JWTAuthentication
+# from rest_framework.views import APIView
+# class TraineeList(APIView):
+#     authentication_classes = [JWTAuthentication]
+#     permission_classes = [IsAuthenticated]
+
+#     def get(self, request):
+#         trainees = Trainee.objects.all()
+#         serializer = TraineeSerializer(trainees, many=True)
+#         return Response(serializer.data)
+
+#     def post(self, request):
+#         serializer = TraineeSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
 
 # login view
 class Login(LoginView):
@@ -164,6 +186,9 @@ from rest_framework import status
 from .models import Trainee
 from .serializers import TraineeSerializer
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import AllowAny
 
 
 
@@ -189,8 +214,15 @@ from rest_framework import generics
 class TraineeLC(generics.ListCreateAPIView):
     queryset = Trainee.objects.all()
     serializer_class = TraineeSerializer
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
 class TraineeRUD(generics.RetrieveUpdateDestroyAPIView):
     queryset = Trainee.objects.all()
     serializer_class = TraineeSerializer
-
+    authentication_classes = [AllowAny]
+    # permission_classes = [IsAuthenticated]
+############################
+# in the fore-mentioned code, a global settings for JWTAuth in setttings.py
+# so we need to overrite it using allowany in the view itself.
+#  NOTE: these settings are applicable only on apiviews and generic apiviews not on cbvs
