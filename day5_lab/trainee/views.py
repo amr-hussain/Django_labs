@@ -12,7 +12,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView #is simpler but require method overriding to handle get_context_data(), post, put methods, don't use if unless for direct redirecting using template_name 
 
-
+############################
+# when using LoginRequiredMixin, it uses redirect_to_login() method to redirect to login page
+# so you need to define LOGIN_URL in settings.py LOGIN_URL = '/login/'
+# also, it appends next in the url so when comming  back from login.html
+# you can comeback to the page you were trying to access
+############################
 
 
 # implementing the add using forms.form
@@ -113,12 +118,10 @@ class TraineeUpdate(LoginRequiredMixin, UpdateView):
 
 
 # def trainee_list(request):
-#     # return HttpResponse("<h1> yes this is working </h1>")
 #     trainees = Trainee.objects.filter(deleted=False)
 #     return render(request, "trainee/trainee_list.html", context= {"trainees": trainees})
 
 # list_trainee as class-based view
-
 class TraineeList(View):
     def get(self, request):
         trainees = Trainee.objects.filter(deleted=False)
@@ -127,7 +130,6 @@ class TraineeList(View):
 
 # login view
 class Login(LoginView):
-
     LoginForm = LoginFormView
     template_name = "auth/login.html"
     
@@ -156,14 +158,37 @@ class Signup(View):
 ####################################
 # creating a api views instead of cbvs
 ####################################
-
-from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from .models import Trainee
 from .serializers import TraineeSerializer
+from rest_framework import generics
 
-class TraineeLC(generics.ListCreateAPIView):
-    queryset = Trainee.objects.all()
-    serializer_class = TraineeSerializer
+
+
+############################
+# using APIView to create generics.ListCreateAPIView
+############################
+class TraineeListCreateView(APIView):
+    def get(self, request):
+        trainees = Trainee.objects.all()  # Get all Trainees
+        serializer = TraineeSerializer(trainees, many=True)
+        return Response(serializer.data)  # Return JSON response
+
+    def post(self, request):
+        serializer = TraineeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+######################
+#using generics views
+####################### 
+# class TraineeLC(generics.ListCreateAPIView):
+#     queryset = Trainee.objects.all()
+#     serializer_class = TraineeSerializer
 
 class TraineeRUD(generics.RetrieveUpdateDestroyAPIView):
     queryset = Trainee.objects.all()
